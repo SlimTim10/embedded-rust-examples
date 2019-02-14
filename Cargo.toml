@@ -1,0 +1,9 @@
+[workspace]
+members = [
+  "src/led-pattern",
+]
+
+[profile.release]
+codegen-units = 1
+debug = true
+lto = true
