@@ -1,6 +1,6 @@
 [workspace]
 members = [
-  "src/led-pattern",
+  "src/*",
 ]
 
 [profile.release]
