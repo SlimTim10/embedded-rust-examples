@@ -4,11 +4,11 @@
 
 use aux8::{entry, rcc, gpioc};
 
-fn power_on_gpioe(rcc: &rcc::RegisterBlock) -> () {
+fn power_on_gpioe(rcc: &rcc::RegisterBlock) {
     rcc.ahbenr.modify(|_, w| w.iopeen().set_bit());
 }
 
-fn set_leds_output(gpioe: &gpioc::RegisterBlock) -> () {
+fn set_leds_output(gpioe: &gpioc::RegisterBlock) {
     gpioe.moder.modify(|_, w| {
         w.moder8().output();
         w.moder9().output();
@@ -21,7 +21,7 @@ fn set_leds_output(gpioe: &gpioc::RegisterBlock) -> () {
     });
 }
 
-fn turn_on_leds(gpioe: &gpioc::RegisterBlock) -> () {
+fn turn_on_leds(gpioe: &gpioc::RegisterBlock) {
     gpioe.odr.write(|w| {
         w.odr8().set_bit();
         w.odr9().set_bit();
